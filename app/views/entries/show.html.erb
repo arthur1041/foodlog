@@ -1,10 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title do %>
+    <%= @entry.meal_type %> &ndash; <%= DateTime.now.to_formatted_s(:nice_date) %>
+<% end %>
 
-<%= render @entry %>
-
-<div>
-  <%= link_to "Edit this entry", edit_entry_path(@entry) %> |
-  <%= link_to "Back to entries", entries_path %>
-
-  <%= button_to "Destroy this entry", @entry, method: :delete %>
+<div class="columns mt-6 is-centered" >
+    <div class="column">
+        <div class="card">
+            <div class="card-header" >
+                <p class="card-header-title" ><span class="has-text-weight-bold" ><%= @entry.meal_type %></span></p>
+            </div>
+            <div class="card-content">
+                <div class="content" >
+                    <p>calories: <%= @entry.calories %></p>
+                    <p>grams of protein: <%= @entry.proteins %></p>
+                    <p>grams of carbohydrates: <%= @entry.carbohydrates %></p>
+                    <p>grams of fat: <%= @entry.fats %></p>
+                    <p class="italic">Logged <%= time_ago_in_words(@entry.created_at) %> ago</p>
+                </div>
+            </div>
+            <div class="card-footer" >
+                <%= link_to 'Go Back', root_path, class: "card-footer-item" %>
+                <%= link_to 'Edit', edit_entry_path(@entry), class: "card-footer-item" %>
+                <%= link_to 'Destroy', @entry, method: :delete, data: {confirm: "Are you sure?" }, class: "card-footer-item" %>
+            </div>
+       </div>
+    </div>
 </div>

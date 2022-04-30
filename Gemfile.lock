@@ -92,6 +92,7 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
+    erb-formatter (0.3.0)
     erubi (1.10.0)
     ffi (1.15.5)
     ffi-compiler (1.0.1)
@@ -253,6 +254,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  erb-formatter
   importmap-rails
   jbuilder
   puma (~> 5.0)
