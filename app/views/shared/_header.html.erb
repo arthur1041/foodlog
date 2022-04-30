@@ -1,0 +1,37 @@
+<header class="hero is-link">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <header class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: "navbar-item" do %>
+            <span class="has-textweight-bold is-size-4" >Foodlog</span>
+          <% end %>
+          <span class="navbar-burger" data-target="navbarMenuHeroC">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroC" class="navbar-menu">
+          <div class="navbar-end">
+            <%= link_to "Create new entry", new_entry_path, class:"button is-success" %>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title">
+        <% if content_for(:title) %>
+            <%= yield :title %>
+        <% else %>
+            Foodlog            
+        <% end %>
+      </p>
+    </div>
+  </div>
+</header>
